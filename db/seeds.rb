@@ -14,10 +14,10 @@ real = Team.create(name:"Barcelona", country_id: spain.id)
 santana = User.create(name: "Santana Rodriguez")
 zidane = User.create(name:" Zinedine Zidane")
 
-dinho = Player.create(name: "Ronaldinho", team_id: barca.id, coach_id: santana.id)
-messi = Player.create(name: "Messi", team_id: barca.id, coach_id: santana.id)
-cristiano = Player.create(name: "Cristiano Ronaldo", team_id: barca.id, coach_id: zidane.id)
-di_maria = Player.create(name: "Angel Di Maria", team_id: barca.id, coach_id: zidane.id)
+dinho = Player.create(name: "Ronaldinho", team: barca, coach: santana)
+messi = Player.create(name: "Messi", team: barca, coach: santana)
+cristiano = Player.create(name: "Cristiano Ronaldo", team: barca, coach: zidane)
+di_maria = Player.create(name: "Angel Di Maria", team: barca, coach: zidane)
 
 dinho.coach = santana
 messi.coach = santana
