@@ -20,8 +20,6 @@ class UsersController < ApplicationController
     private 
 
     def user_params(*args)
-        params.require(:post).permit(*args)
-    end
-    
-    
+        params.require(:user).permit(*args)
+    end    
 end
