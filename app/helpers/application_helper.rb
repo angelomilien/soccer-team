@@ -9,7 +9,7 @@ module ApplicationHelper
     end 
     
     def current_user
-        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+        @current_user ||= User.find_by(id: session[:user_id]) #if session[:user_id]
     end
 
     def logged_in?
@@ -24,4 +24,10 @@ module ApplicationHelper
         session.delete(:user_id)
         @current_user = nil
     end
+
+    # def redirect_if_not_authorized(resource)
+    #     if resource.user != current_user
+    #       redirect "/stops"
+    #     end 
+    # end
 end
