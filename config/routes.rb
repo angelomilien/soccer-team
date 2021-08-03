@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     
-    root 'session#home'
-    get 'signup', to: 'session#signup'
-    get 'login', to: 'session#login'
-    post 'login', to: 'session#create'
+    root 'sessions#home'
+    get 'signup', to: 'sessions#signup'
+    get 'login', to: 'sessions#login'
+    post 'login', to: 'sessions#create'
     resources :players
     resources :teams
     resources :countries
