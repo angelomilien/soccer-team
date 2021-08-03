@@ -1,14 +1,10 @@
-class Sessions < ApplicationController
+class UserController < ApplicationController
     
     def new
         
     end
-
+    
     def create
-        
-    end
-
-    def home
         
     end
     
