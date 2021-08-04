@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
     def home    
     end
 
-    def login    
+    def login
+        @user = User.new 
     end
 
     def logout

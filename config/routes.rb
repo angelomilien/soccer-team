@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     
     root 'sessions#home'
     get '/signup', to: 'sessions#signup'
-    post '/login', to: 'sessions#login'
+    post '/signup', to: 'users#signup'
+    get '/login', to: 'sessions#login'
+    post '/login', to: 'users#login'
     delete '/logout', to: 'sessions#logout'
 
     resources :players
