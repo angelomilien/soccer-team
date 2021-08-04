@@ -5,10 +5,16 @@ class SessionsController < ApplicationController
        @user = User.new 
     end
 
-    def login
-        
+    def home    
     end
 
-    def home    
-    end 
+    def login    
+    end
+
+    def logout
+        session.clear
+        redirect_to '/'
+    end
+    
+ 
 end
