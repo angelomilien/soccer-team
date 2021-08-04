@@ -1,5 +1,6 @@
-class TeamsController < ApplicationController
+class PlayersController < Application.rb
     
+
     def index
         
     end
@@ -14,5 +15,5 @@ class TeamsController < ApplicationController
 
     def update
         
-    end  
+    end 
 end

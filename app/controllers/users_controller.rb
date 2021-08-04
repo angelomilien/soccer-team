@@ -1,15 +1,25 @@
 class UsersController < ApplicationController
     
     def signup
-        @user = User.new(user_params(:user_name, :email, :password))
+       @user = User.new(user_params(:user_name, :email, :password))
        if @user.save
           #log user on creating
           session[:user_id] = @user.id
-          redirect_to teams_path
+          redirect_to players_path
        else
           render "sessions/signup"
        end
     end
+
+    def login
+        @user = User.find_by(email: params[:user][:email])
+        if @user && @user.authenticate(params[:user][:password])
+           #log user on finding
+           session[:user_id] = @user.id
+           redirect_to players_path
+        end 
+    end
+    
       
     #   def update
     #     @post = Post.find(params[:id])
