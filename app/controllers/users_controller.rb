@@ -18,8 +18,7 @@ class UsersController < ApplicationController
            session[:user_id] = @user.id
            redirect_to players_path
         else
-        #    flash[:error] = "Sorry, your username or password was incorrect"
-        flash[:error].class
+           flash[:error] = "Sorry, your username or password was incorrect"
            redirect_to "sessions/login"
         end 
     end
