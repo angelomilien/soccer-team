@@ -2,12 +2,11 @@ class UsersController < ApplicationController
     
     def signup
        @user = User.new(user_params(:user_name, :email, :password))
-       if @user.save!
+       if @user.save
           #log user on creating
           session[:user_id] = @user.id
           redirect_to players_path
        else
-          puts @user.errors.full_messages
           render "sessions/signup"
        end
     end
