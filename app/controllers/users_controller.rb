@@ -2,11 +2,12 @@ class UsersController < ApplicationController
     
     def signup
        @user = User.new(user_params(:user_name, :email, :password))
-       if @user.save
+       if @user.save!
           #log user on creating
           session[:user_id] = @user.id
           redirect_to players_path
        else
+          puts @user.errors.full_messages
           render "sessions/signup"
        end
     end
@@ -17,6 +18,10 @@ class UsersController < ApplicationController
            #log user on finding
            session[:user_id] = @user.id
            redirect_to players_path
+        else
+        #    flash[:error] = "Sorry, your username or password was incorrect"
+        flash[:error].class
+           redirect_to "sessions/login"
         end 
     end
     

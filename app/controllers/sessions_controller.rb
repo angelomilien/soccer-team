@@ -9,13 +9,11 @@ class SessionsController < ApplicationController
     end
 
     def login
-        @user = User.new 
+       @user = User.new 
     end
 
     def logout
         session.clear
         redirect_to '/'
     end
-    
- 
 end

@@ -1,4 +1,4 @@
-class PlayersController < Application.rb
+class PlayersController < ApplicationController
     
 
     def index
