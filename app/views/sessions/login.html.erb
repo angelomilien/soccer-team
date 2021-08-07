@@ -3,6 +3,6 @@
 <%= flash[:error]%><br><br>
 
 <%= form_for @user, url: '/login' do |f|%>
-
+   
    <%= render partial: "users/input", locals: {f: f} %>
 <%end%>
