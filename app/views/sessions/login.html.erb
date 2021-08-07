@@ -4,11 +4,5 @@
 
 <%= form_for @user, url: '/login' do |f|%>
 
-   <%= f.label :email %>
-   <%= f.email_field :email%><br><br>
-
-   <%= f.label :password %>
-   <%= f.password_field :password%><br><br><br>
-
-   <%= f.submit "Submit" %>
+   <%= render partial: "users/input", locals: {f: f} %>
 <%end%>

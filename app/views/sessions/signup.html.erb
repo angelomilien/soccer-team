@@ -6,12 +6,6 @@
 
    <%= f.label :username %>
    <%= f.text_field :user_name%><br>
-
-   <%= f.label :email %>
-   <%= f.email_field :email%><br>
-
-   <%= f.label :password %>
-   <%= f.password_field :password%><br><br>
-
-   <%= f.submit "Submit" %>
+   
+   <%= render partial: "users/input", locals: {f: f} %>
 <%end%>
