@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     def login
         @user = User.find_by(email: params[:user][:email])
+        puts auth.class
         if @user && @user.authenticate(params[:user][:password])
            #log user on finding
            session[:user_id] = @user.id
@@ -22,15 +23,27 @@ class UsersController < ApplicationController
            redirect_to "/login"
         end 
     end
-    
-      
-    #   def update
-    #     @post = Post.find(params[:id])
-    #     @post.update(post_params(:title))
-    #     redirect_to post_path(@post)
-    #   end
 
-    private 
+    def fbcreate
+        puts auth.class
+        puts "jwkshfkfjsufo dhkshfklsf jwkfhksfyh"
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
+          u.name = auth['info']['name']
+          u.email = auth['info']['email']
+          u.image = auth['info']['image']
+    end
+    
+        session[:user_id] = @user.id
+    
+        render 'sessions/home'
+    end
+    
+
+    private
+    
+    def auth
+      request.env['omniauth.auth']
+    end
 
     def user_params(*args)
         params.require(:user).permit(*args)
