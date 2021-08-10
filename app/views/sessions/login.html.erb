@@ -2,7 +2,7 @@
 
 <%= flash[:error]%><br><br>
 
-<%= form_for @user, url: '/login' do |f|%>
+<%= form_for @user, url: signing_path do |f|%>
    
    <%= render partial: "users/input", locals: {f: f} %>
 <%end%>
