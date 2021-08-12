@@ -1,10 +1,5 @@
 class SessionsController < ApplicationController
     
-
-    def signup
-       @user = User.new 
-    end
-
     def home    
     end
 
@@ -26,7 +21,6 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        # byebug
         user = User.from_google_omniauth(auth)
         if user.valid? 
             session[:user_id] = user.id
@@ -39,8 +33,7 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        session.delete(:user_id)
-        redirect_to root_path
+        logout
     end
 
     private

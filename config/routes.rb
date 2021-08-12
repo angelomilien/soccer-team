@@ -4,14 +4,14 @@ Rails.application.routes.draw do
     root 'sessions#home'
     get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
 
-    get '/signup', to: 'sessions#signup'
+    get '/signup', to: 'users#new'
     post '/signup', to: 'users#signup'
 
     get '/login', to: 'sessions#login'
     post '/signing', to: 'sessions#signing'
 
     delete '/logout', to: 'sessions#logout'
-    get'/logout', to: 'sessions#logout'  #handling get logout from users typing still working on it
+    # get'/logout', to: 'sessions#logout'  #handling get logout from users
 
     resources :players
     resources :teams

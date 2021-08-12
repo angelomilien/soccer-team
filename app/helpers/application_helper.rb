@@ -32,6 +32,14 @@ module ApplicationHelper
         end
     end
 
+    # def navigation_helper 
+    #     if !logged_in?
+    #         button_to("Sign in with Google", '/auth/google_oauth2') 
+    #     else 
+    #         link_to("Log Out", logout_path, method: 'delete')
+    #     end
+    # end
+
     # def redirect_if_not_authorized(resource)
     #     if resource.user != current_user
     #       redirect "/stops"
