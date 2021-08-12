@@ -1,0 +1,13 @@
+<h1>Player: <%= @player.name %></h1>
+
+<h2>Age: <%=@player.age%>
+
+<h2>Position: <%=@player.position%></h2>
+<h2>Number: <%= @player.number %></h2>
+
+<%# <p>Coach: <%= @player.coach.user_name %>  </p>
+
+<h2>Team: <%= @player.team.name %></h2>
+
+<%= button_to "Log out", logout_path, method: 'delete' %> &nbsp;
+<%= button_to "Home", players_path, method: 'get' %> &nbsp;

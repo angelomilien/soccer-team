@@ -1,5 +1,15 @@
 <br>
 <%= flash[:message]%>
+
 <h1>Players</h1><br>
+
+<ul>
+  <% @players.each do |p| %>
+    <li>
+      <%= link_to p.name, player_path(p)%>
+  
+    </li><br>
+    <% end %>
+</ul>
 
 <%= button_to "Log out", logout_path, method: 'delete' %>

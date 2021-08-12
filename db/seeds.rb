@@ -11,8 +11,8 @@ spain = Country.create(name:"Spain")
 barca = Team.create(name:"Barcelona", country_id: spain.id)
 real = Team.create(name:"Barcelona", country_id: spain.id)
     
-santana = User.create(name: "Santana Rodriguez")
-zidane = User.create(name:" Zinedine Zidane")
+santana = User.create(user_name: "Santana Rodriguez")
+zidane = User.create(user_name:" Zinedine Zidane")
 
 dinho = Player.create(name: "Ronaldinho", team: barca, coach: santana)
 messi = Player.create(name: "Messi", team: barca, coach: santana)
