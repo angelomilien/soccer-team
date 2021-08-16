@@ -40,11 +40,22 @@ module ApplicationHelper
         end
     end
 
+
+    def home_nav_button
+        button_to "Home", players_path, method: 'get'
+    end
+
+    def logout_nav_button
+        button_to "Log out", logout_path, method: 'delete'
+    end
+    
+    
+
     
 
     # def redirect_if_not_authorized(resource)
-    #     if resource.user != current_user
-    #       redirect "/stops"
+    #     if resource.coach_id != current_user.id
+    #       redirect_to players_path
     #     end 
     # end
 end

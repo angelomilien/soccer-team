@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     # get'/logout', to: 'sessions#logout'  #handling get logout from users
 
     resources :players
-    resources :teams
-    resources :countries
+    resources :teams, only: [:show]
+    resources :countries, only: [:show]
     resources :users
+
     # get 'about', to: 'static#about'
   # resources :posts, only: [:index, :show, :new, :create, :edit, :update, :delete]
 end

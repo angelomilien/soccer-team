@@ -7,10 +7,11 @@
 <%else%>
     <ul>
       <% @players.each do |p| %>
-        <li>
-          <%= link_to p.name, player_path(p)%>
-      
-        </li><br>
+          <%if p.coach ==  current_user%>
+              <li>
+                 <%= link_to p.name, player_path(p)%>
+              </li><br>
+          <%end%>
         <% end %>
     </ul>
 <%end%>

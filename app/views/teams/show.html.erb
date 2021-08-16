@@ -1,1 +1,13 @@
-<%= @team.name %>
+<h1>Team show page</h1><hr>
+
+<h2>Name: <%= @team.name %></h2>
+<h2>Country: <%= @team.country.name %></h2>
+
+<%=home_nav_button%><br>
+<%=logout_nav_button%><br>
+
+<%= button_to "team players", players_path, method: 'get' %> <br>
+
+<%# <%if @player.coach == current_user%>
+    <%# <%= button_to "Edit", players_path, method: 'get' %> &nbsp;
+<%# <%end%> 

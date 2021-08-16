@@ -12,6 +12,7 @@ class PlayersController < ApplicationController
     
     def index
         @players = Player.all
+        # redirect_if_not_authorized
     end
 
 
@@ -24,7 +25,6 @@ class PlayersController < ApplicationController
         @player = Player.new(player_params)
         if @player.save
             redirect_to player_path(@player)
-            # byebug
         else
            @player.errors.each do |error|
             flash[message] = error.full_message
@@ -55,9 +55,9 @@ class PlayersController < ApplicationController
         @player = Player.find_by_id(params[:id])
     end  
     
-    # def redirect_if_not_authorized
-    #     if @player.coach != current_user
-    #       redirect players_path 
-    #     end 
-    # end
+    def redirect_if_not_authorized
+        if @player.coach != current_user
+          redirect players_path 
+        end 
+    end
 end

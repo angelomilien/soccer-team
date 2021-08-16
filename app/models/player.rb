@@ -7,7 +7,7 @@ class Player < ApplicationRecord
     accepts_nested_attributes_for :team
 
     # scope :order_by_popularity, -> { Workout.left_joins(:trainings).group(:id).order("count(trainings.workout_id) desc") }
-
+    # scope :out_of_print_and_expensive, -> { out_of_print.where('price > 500') }
     # accepts_nested_attributes_for :team
     # validates :team, :name, :age, :position, :number,  presence: true
 
