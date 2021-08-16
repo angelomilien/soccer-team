@@ -16,29 +16,31 @@ module ApplicationHelper
         !!current_user
     end 
 
-    # def redirect_if_not_logged_in
-    #     redirect_to if !logged_in?
-    # end
-  
-    def logout
-        session.delete(:user_id)
-        @current_user = nil
-        redirect_if_not_logged_in
-    end
-
     def redirect_if_not_logged_in
         if !logged_in?
           redirect_to root_path
         end
     end
 
-    # def navigation_helper 
-    #     if !logged_in?
-    #         button_to("Sign in with Google", '/auth/google_oauth2') 
-    #     else 
-    #         link_to("Log Out", logout_path, method: 'delete')
-    #     end
-    # end
+    def button_to_welcome_home_page
+        button_to "Home", root_path, method: 'get'   
+    end
+
+    def session_home
+        button_to "Home", players_path, method: 'get' 
+    end
+    
+    
+
+    def navigation_helper 
+        if !logged_in?
+            button_to("Sign in with Google", '/auth/google_oauth2') 
+        else 
+            button_to("Log Out", logout_path, method: 'delete')
+        end
+    end
+
+    
 
     # def redirect_if_not_authorized(resource)
     #     if resource.user != current_user

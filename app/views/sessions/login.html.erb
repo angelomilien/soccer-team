@@ -5,4 +5,7 @@
 <%= form_for @user, url: signing_path do |f|%>
    
    <%= render partial: "users/input", locals: {f: f} %>
-<%end%>
+<%end%><br>
+
+<%=button_to_welcome_home_page%><br>
+<%=navigation_helper%>

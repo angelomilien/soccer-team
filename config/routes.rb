@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     resources :countries
     resources :users
     # get 'about', to: 'static#about'
-  # resources :posts, only: [:index, :show, :new, :create, :edit, :update]
+  # resources :posts, only: [:index, :show, :new, :create, :edit, :update, :delete]
 end

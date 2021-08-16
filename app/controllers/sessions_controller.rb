@@ -33,7 +33,9 @@ class SessionsController < ApplicationController
     end
 
     def logout
-        logout
+        session.delete(:user_id)
+        @current_user = nil
+        redirect_if_not_logged_in
     end
 
     private
