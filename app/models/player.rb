@@ -2,7 +2,7 @@ class Player < ApplicationRecord
 
     belongs_to :coach, :class_name => "User"
     belongs_to :team 
-    validates :name, :age, :position, :number  presence: true
+    validates :name, :age, :position, :number,  presence: true
 
     accepts_nested_attributes_for :team
 

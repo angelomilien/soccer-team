@@ -3,7 +3,7 @@ class Team < ApplicationRecord
     has_many :coaches, :class_name => "User", through: :players, :foreign_key => 'coach_id'
 
     belongs_to :country
-    validates :name, :country_name presence: true
+    validates :name, :country_name, presence: true
 
 
 

@@ -20,8 +20,17 @@ class PlayersController < ApplicationController
     end
     
     def create
+        # byebug
         @player = Player.new(player_params)
-        byebug
+        if @player.save
+            redirect_to player_path(@player)
+            # byebug
+        else
+           @player.errors.each do |error|
+            flash[message] = error.full_message
+            render :new
+           end 
+        end
     end
 
     def edit
