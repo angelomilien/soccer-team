@@ -7,17 +7,14 @@ class PlayersController < ApplicationController
     def new
         @player = Player.new
         @player.build_team
-        # @team.build_country
     end
     
     def index
         @players = Player.all
-        # redirect_if_not_authorized
     end
 
 
     def show
-        # byebug
     end
     
     def create
@@ -34,11 +31,11 @@ class PlayersController < ApplicationController
     end
 
     def edit
-        
     end
 
     def update
-        
+        @player.update(player_params)
+        redirect_to player_path(@player)
     end 
 
     def destroy

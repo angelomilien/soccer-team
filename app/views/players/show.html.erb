@@ -16,5 +16,5 @@
 <%=logout_nav_button%><br>
 
 <%if @player.coach == current_user%>
-    <%= button_to "Edit", players_path, method: 'get' %>
+    <%= button_to "Edit", edit_player_path, method: 'get' %>
 <%end%>
