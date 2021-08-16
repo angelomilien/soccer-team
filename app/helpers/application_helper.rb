@@ -48,6 +48,11 @@ module ApplicationHelper
     def logout_nav_button
         button_to "Log out", logout_path, method: 'delete'
     end
+
+    def edit_nav_button
+        button_to "Edit", edit_player_path, method: 'get'
+    end
+    
     
     
 

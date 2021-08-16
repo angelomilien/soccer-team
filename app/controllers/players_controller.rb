@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
     before_action :redirect_if_not_logged_in?
     before_action :find_player, only: [:show, :update, :edit, :destroy]
+    before_action :redirect_if_not_authorized, only: [:show, :update, :edit, :destroy]
     # skip_before_action :redirect_if_not_logged_in, only: [:new, :create]
 
 
@@ -16,6 +17,10 @@ class PlayersController < ApplicationController
 
     def show
     end
+
+    def edit
+    end
+
     
     def create
         # byebug
@@ -30,9 +35,6 @@ class PlayersController < ApplicationController
         end
     end
 
-    def edit
-    end
-
     def update
         @player.update(player_params)
         redirect_to player_path(@player)
@@ -42,8 +44,13 @@ class PlayersController < ApplicationController
         
     end
 
+
+
+
     private 
 
+
+    
     def player_params
         params.require(:player).permit(:name, :age, :position, :number, :coach_id, team_attributes: [:name, :country_name])
     end
@@ -54,7 +61,7 @@ class PlayersController < ApplicationController
     
     def redirect_if_not_authorized
         if @player.coach != current_user
-          redirect players_path 
+          redirect_to players_path 
         end 
     end
 end
