@@ -1,6 +1,8 @@
 
 <h1>Player Form </h1>
 
+<%= render partial: "users/errors", locals: {object: @player} %>
+
 <%= form_for @player do |f| %>
 <%= render "form" %>
 

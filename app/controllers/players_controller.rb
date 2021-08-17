@@ -28,10 +28,7 @@ class PlayersController < ApplicationController
         if @player.save
             redirect_to player_path(@player)
         else
-           @player.errors.each do |error|
-            flash[message] = error.full_message
             render :new
-           end 
         end
     end
 
