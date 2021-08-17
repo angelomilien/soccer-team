@@ -26,4 +26,10 @@ class TeamsController < ApplicationController
         @team = Team.find_by_id(params[:id])
     end 
 
+    def redirect_if_not_authorized
+        if @team.id != current_user
+          redirect_to players_path 
+        end 
+    end
+
 end

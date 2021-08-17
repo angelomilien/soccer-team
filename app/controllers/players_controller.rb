@@ -11,7 +11,8 @@ class PlayersController < ApplicationController
     end
     
     def index
-        @players = Player.all
+        # @players = Player.all
+        @players = Player.order_alphabetically
     end
 
 
@@ -23,7 +24,6 @@ class PlayersController < ApplicationController
 
     
     def create
-        # byebug
         @player = Player.new(player_params)
         if @player.save
             redirect_to player_path(@player)
@@ -50,7 +50,7 @@ class PlayersController < ApplicationController
     private 
 
 
-    
+
     def player_params
         params.require(:player).permit(:name, :age, :position, :number, :coach_id, team_attributes: [:name, :country_name])
     end

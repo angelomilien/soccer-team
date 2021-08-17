@@ -6,6 +6,8 @@ class Player < ApplicationRecord
 
     accepts_nested_attributes_for :team
 
+    scope :order_alphabetically, -> {order(name: :asc) }
+
     # scope :order_by_popularity, -> { Workout.left_joins(:trainings).group(:id).order("count(trainings.workout_id) desc") }
     # scope :out_of_print_and_expensive, -> { out_of_print.where('price > 500') }
     # accepts_nested_attributes_for :team
@@ -47,7 +49,8 @@ class Player < ApplicationRecord
     # validates :color, presence: true, two_word: true, uniqueness: {scope: [:brand, :price]}
 
 
-    # scope :order_by_price, -> {order(price: :desc)}
+    # scope :order_alphabetically, -> {order(age: :age > 30)}
+    # scope :order_alphabetically, -> {order(name: :asc) }
     # scope :order_by_condition, -> {order(:condition)}
     # scope :color_selector, -> (color) {where('color == ?', color)}
       
