@@ -16,3 +16,5 @@
 <%=logout_nav_button%><br>
 <%=edit_nav_button%><br>
 
+<%= button_to "Delete", @player, :confirm => "Are you sure?", :method => :delete %>
+
