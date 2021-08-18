@@ -11,13 +11,20 @@ Rails.application.routes.draw do
     post '/signing', to: 'sessions#signing'
 
     delete '/logout', to: 'sessions#logout'
-    # get'/logout', to: 'sessions#logout'  #handling get logout from users
+    # get 'authors/:id/posts', to: 'authors#posts_index'
+    # get 'authors/:id/posts/:post_id', to: 'authors#post'
 
-    resources :players
-    resources :teams, only: [:show]
+    resources :players, only: [:new, :create, :index]
+    
+    resources :teams, only: [:show] do
+      resources :players, shallow: true
+    end
+    
     resources :countries, only: [:show]
     resources :users
 
     # get 'about', to: 'static#about'
-  # resources :posts, only: [:index, :show, :new, :create, :edit, :update, :delete]
+    # resources :posts, only: [:index, :show, :new, :create, :edit, :update, :delete]
+
+    # get'/logout', to: 'sessions#logout'  #handling get logout from users
 end

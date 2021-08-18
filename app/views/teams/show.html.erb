@@ -6,8 +6,5 @@
 <%=home_nav_button%><br>
 <%=logout_nav_button%><br>
 
-<%# <%= button_to "team players", players_path, method: 'get' %> <br> %>
-
-<%# <%if @player.coach == current_user%>
-    <%# <%= button_to "Edit", players_path, method: 'get' %> &nbsp;
-<%# <%end%> 
+<%= button_to "team players", "/teams/#{@team.id}/players", method: 'get' %><br> 
+<%= button_to "Add a new player", "/teams/:team_id/players/new", method: 'get' %><br>

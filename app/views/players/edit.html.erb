@@ -1,8 +1,14 @@
 <h1>player Edit Form </h1>
 
-   <%= form_for @player do |f| %>
-   <%= render  "form" %>
-   
-   <%end%>
-   <%=session_home%><br>
-   <%=navigation_helper%>
+<%= render partial: "users/errors", locals: {object: @player} %>
+
+<%= form_for @player do |f| %>
+
+    <%= render partial: "form", locals: {f: f} %>
+
+  <br><br><%= f.submit %><br><br>
+<% end %>
+
+
+<%=session_home%><br>
+<%=navigation_helper%>

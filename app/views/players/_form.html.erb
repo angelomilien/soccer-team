@@ -1,8 +1,6 @@
 
  <%= flash[:message]%><br><br>
 
-
-    <%= form_for @player do |f| %>
       <%= f.label :'player name' %>
       <%= f.text_field :name%><br><br>
       
@@ -16,17 +14,4 @@
       <%= f.text_field :number%><br><br>
 
       <%= f.hidden_field :coach_id, value: current_user.id %>
-
-      <%= f.fields_for :team do |t| %>
-
-      <h3>Add team</h3>
-        <%= t.label :name %>
-        <%= t.text_field :name %><br><br>
-
-        <%= t.label :country %>
-        <%= t.text_field :country_name %>
-      <% end %>
-
       
-    <br><br><%= f.submit %><br><br>
-<% end %>
