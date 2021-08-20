@@ -8,7 +8,7 @@ class Team < ApplicationRecord
 
 
     def country_name=(name)
-        self.country = Country.find_or_create_by(name: name)
+        self.country = Country.find_or_create_by(name: name.capitalize)
     end
    
     def country_name

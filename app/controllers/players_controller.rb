@@ -11,9 +11,11 @@ class PlayersController < ApplicationController
     end
     
     def index
+        # byebug
         if params[:team_id]
             @team = Team.find_by_id(params[:team_id])
             @players = @team.players
+            # byebug
         else
             @players = Player.order_alphabetically
         end

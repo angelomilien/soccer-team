@@ -6,5 +6,5 @@
 <%=home_nav_button%><br>
 <%=logout_nav_button%><br>
 
-<%= button_to "team players", "/teams/#{@team.id}/players", method: 'get' %><br> 
-<%= button_to "Add a new player", "/teams/:team_id/players/new", method: 'get' %><br>
+<%= button_to "team players", team_players_path(@team), method: 'get' %><br> 
+<%= button_to "Add a new player", new_team_player_path(@team), method: 'get' %><br>

@@ -4,9 +4,20 @@ class Player < ApplicationRecord
     belongs_to :team 
     validates :name, :age, :position, :number,  presence: true
 
-    accepts_nested_attributes_for :team
+    # accepts_nested_attributes_for :team
 
     scope :order_alphabetically, -> {order(name: :asc) }
+
+    
+    def team_attributes=(team_attributes)
+        # team _attributes = {"name"=>"", "country_name"=>""}
+        self.team = Team.find_or_create_by(name: team_attributes[:name].capitalize)
+        self.team.update(name: team_attributes[:name].capitalize, country_name: team_attributes[:country_name].capitalize)
+    end
+   
+    # def team_name
+    #     self.team ? self.team.name : nil
+    # end
 
     # scope :order_by_popularity, -> { Workout.left_joins(:trainings).group(:id).order("count(trainings.workout_id) desc") }
     # scope :out_of_print_and_expensive, -> { out_of_print.where('price > 500') }
@@ -21,7 +32,7 @@ class Player < ApplicationRecord
     #     self.team ? self.team.name : nil
     # end
 
-    # def self.set_team_and_country(team_name, country_name)
+    # def self.set_team_and_country(team_name, team_name)
     #     @country = Country.create(name: country_name)
     #     @team = @country.teams.build(name: team_name)
     #     @team.save
