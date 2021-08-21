@@ -2,7 +2,9 @@ class Player < ApplicationRecord
 
     belongs_to :coach, :class_name => "User"
     belongs_to :team 
-    validates :name, :age, :position, :number,  presence: true
+    validates :name, :age, :position, :number, presence: true
+    validates_associated :team, :message => "name and country name can't be empty"
+    # validates team_attributes: [:name, :country_name]
 
     # accepts_nested_attributes_for :team
 
@@ -15,8 +17,8 @@ class Player < ApplicationRecord
         self.team.update(name: team_attributes[:name].capitalize, country_name: team_attributes[:country_name].capitalize)
     end
    
-    # def team_name
-    #     self.team ? self.team.name : nil
+    # def team_attributes
+    #     # self.team ? self.team.name : nil
     # end
 
     # scope :order_by_popularity, -> { Workout.left_joins(:trainings).group(:id).order("count(trainings.workout_id) desc") }

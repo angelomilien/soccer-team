@@ -11,11 +11,13 @@ class PlayersController < ApplicationController
     end
     
     def index
-        # byebug
         if params[:team_id]
             @team = Team.find_by_id(params[:team_id])
-            @players = @team.players
-            # byebug
+            if current_user.teams.include? @team
+               @players = @team.players
+            else
+                redirect_to players_path
+            end
         else
             @players = Player.order_alphabetically
         end
