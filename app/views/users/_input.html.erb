@@ -1,7 +1,12 @@
-   <%= f.label :email %>
-   <%= f.email_field :email%><br>
+   <div class="form-outline mb-4">  
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control form-control-lg'%><br>
+   </div>
+   <div class="form-outline mb-4">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control form-control-lg'%><br><br>
+   </div>
 
-   <%= f.label :password %>
-   <%= f.password_field :password%><br><br>
-
-   <%= f.submit "Submit" %>
+      <%= f.submit "Submit", class: "btn btn-primary btn-lg btn-block" %>
+      <hr class="my-4">
+  

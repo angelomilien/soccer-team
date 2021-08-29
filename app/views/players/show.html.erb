@@ -1,20 +1,22 @@
-<h1>Player show page</h1>
+<div class="container"> 
+    <h1>Player show page</h1>
+    <hr>
+    <h2>Name: <%= @player.name %></h2>
 
-<h2>Name: <%= @player.name %></h2>
+    <h2>Age: <%=@player.age%>
 
-<h2>Age: <%=@player.age%>
+    <h2>Position: <%=@player.position%></h2>
 
-<h2>Position: <%=@player.position%></h2>
+    <h2>Number: <%= @player.number %></h2>
 
-<h2>Number: <%= @player.number %></h2>
+    <h2>Coach: <%= @player.coach.user_name %>  </h2>
 
-<h2>Coach: <%= @player.coach.user_name %>  </h2>
+    <h2>Team: <%= link_to @player.team.name, team_path(@player.team)%><br><br>
 
-<h2>Team: <%= link_to @player.team.name, team_path(@player.team)%><br><br>
+    <%=home_nav_button%><br>
+    <%=logout_nav_button%><br>
+    <%=edit_nav_button%><br>
 
-<%=home_nav_button%><br>
-<%=logout_nav_button%><br>
-<%=edit_nav_button%><br>
-
-<%= button_to "Delete", @player, :confirm => "Are you sure?", :method => :delete %>
+    <%= button_to "Delete", @player, :confirm => "Are you sure?", :method => :delete %>
+</div>    
 

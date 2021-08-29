@@ -7,7 +7,6 @@ class PlayersController < ApplicationController
 
     def new
         if params[:team_id] && @team = Team.find_by_id(params[:team_id])
-    
             if current_user.teams.include? @team
                 @player = @team.players.build
             else
