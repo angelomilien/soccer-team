@@ -1,20 +1,22 @@
-<br>
-<h3><%= flash[:message]%></h3>
+<div class= "container" style="background-color: #548CA8"> 
+    <br>
+    <h3><%= flash[:message]%></h3>
 
-<h1>Welcome <%=current_user.user_name%> to your Players page</h1><br>
-<%if current_user.players.size == 0%>
-   <h3>you don't have any player yet</h3>
-<%else%>
-    <ul>
-      <% @players.each do |p| %>
-          <%if p.coach ==  current_user%>
-              <li>
-                 <%= link_to p.name, player_path(p)%>
-              </li><br>
-          <%end%>
-        <% end %>
-    </ul>
-<%end%>
+    <h1>Welcome <%=current_user.user_name%> to your Players page</h1><br>
+    <%if current_user.players.size == 0%>
+    <h3>you don't have any player yet</h3>
+    <%else%>
+        <ul>
+        <% @players.each do |p| %>
+            <%if p.coach ==  current_user%>
+                <li>
+                    <%= link_to p.name, player_path(p)%>
+                </li><br>
+            <%end%>
+            <% end %>
+        </ul>
+    <%end%>
 
-<%=button_to "Add player", new_player_path, method: 'get' %><br>
-<%=navigation_helper%>
+    <%=button_to "Add player", new_player_path, method: 'get' %><br>
+    <%=navigation_helper%><br>
+</div>

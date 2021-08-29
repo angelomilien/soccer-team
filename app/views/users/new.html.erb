@@ -1,14 +1,29 @@
-<h1>Signup here<h1><br>
 
-<%= render partial: "errors", locals: {object: @user} %>
-
-<%= form_for @user, url: signup_path do |f|%>
-
-   <%= f.label :username %>
-   <%= f.text_field :user_name%><br>
+<section class="vh-100" style="background-color: #476072;">
+   <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+               <div class="card-body p-5 text-center">
+                  <h1>Signup here<h1><br>
    
-   <%= render partial: "input", locals: {f: f} %>
-<%end%>
+                  <%= render partial: "errors", locals: {object: @user} %>
+   
+                  <%= form_for @user, url: signup_path do |f|%>
 
-<%=button_to_welcome_home_page%>
-<%=navigation_helper%>
+                  <div class="form-outline mb-4">
+                     <%= f.label :username %>
+                     <%= f.text_field :user_name, class: 'form-control form-control-lg'%><br>
+                  </div>  
+
+                     <%= render partial: "input", locals: {f: f} %>
+                  <%end%>
+   
+                  <%=button_to_welcome_home_page%>
+                  <%=navigation_helper%>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

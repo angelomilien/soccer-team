@@ -1,13 +1,16 @@
-<h1>Team show page</h1><hr>
+<div class= "container" style="background-color: #548CA8">
+ 
+        <h1>Team show page</h1><hr>
 
-<h2>Name: <%= @team.name %></h2>
-<h2>Country: <%= @team.country.name %></h2>
-
-
-<%=home_nav_button%><br>
-<%=logout_nav_button%><br>
+        <h2>Name: <%= @team.name %></h2>
+        <h2>Country: <%= @team.country.name %></h2>
 
 
+        <%=home_nav_button%><br>
+        <%=logout_nav_button%><br>
 
-<%= button_to "team players", team_players_path(@team), method: 'get' %><br> 
-<%= button_to "Add a new player", new_team_player_path(@team), method: 'get' %><br>
+
+
+        <%= button_to "team players", team_players_path(@team), method: 'get' %><br> 
+        <%= button_to "Add a new player", new_team_player_path(@team), method: 'get' %><br>
+</div>

@@ -1,28 +1,28 @@
 
 <h1>Player Form </h1>
+<div class= "container" style="background-color: #548CA8">
+    <%= render partial: "users/errors", locals: {object: @player} %>
 
-<%= render partial: "users/errors", locals: {object: @player} %>
 
+    <%= form_for @player do |f| %>
 
-<%= form_for @player do |f| %>
+    <%= render partial: "form", locals: {f: f} %>
 
-<%= render partial: "form", locals: {f: f} %>
+    <%if @team%>
+    <%= f.hidden_field :team_id, value: @team.id%>
+    <%else%>
 
-<%if @team%>
-   <%= f.hidden_field :team_id, value: @team.id%>
-<%else%>
+        <h3>Add team</h3>
 
-    <h3>Add team</h3>
+        <%= f.fields_for :team do |t| %>
 
-    <%= f.fields_for :team do |t| %>
+        <%= t.label :name %>
+        <%= t.text_field :name %><br><br>
 
-    <%= t.label :name %>
-    <%= t.text_field :name %><br><br>
-
-    <%= t.label :country_name %>
-    <%= t.text_field :country_name %>
-    <% end %>
-<%end%>
+        <%= t.label :country_name %>
+        <%= t.text_field :country_name %>
+        <% end %>
+    <%end%>
 
 
 <br><br><br><%= f.submit %><br><br>
@@ -30,4 +30,5 @@
 <% end %>
 
 <%=session_home%><br>
-<%=navigation_helper%>
+<%=navigation_helper%><br>
+</div>
