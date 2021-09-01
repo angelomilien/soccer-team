@@ -39,6 +39,16 @@ class PlayersController < ApplicationController
     def edit
     end
 
+    def search
+        if params[:q].blank?  
+            redirect_to(players_path, alert: "Empty field!") 
+        else 
+        @player = Player.search(params[:q])
+        render :'players/show'
+        end
+    end
+    
+
     
     def create
     

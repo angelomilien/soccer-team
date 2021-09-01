@@ -49,8 +49,8 @@ module ApplicationHelper
         button_to "Log out", logout_path, method: 'delete'
     end
 
-    def edit_nav_button
-        button_to "Edit", edit_player_path, method: 'get'
+    def edit_nav_button(resource)
+        button_to "Edit", edit_player_path(resource), method: 'get'
     end
     
     

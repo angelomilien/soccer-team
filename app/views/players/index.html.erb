@@ -1,8 +1,18 @@
 <div class= "container" style="background-color: #548CA8"> 
     <br>
+
+
+    
     <h3><%= flash[:message]%></h3>
 
     <h1>Welcome <%=current_user.user_name%> to your Players page</h1><br>
+
+    <%= form_tag("/search", :method => "get") do %>
+        <%= label_tag(:q, "Search for:") %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search") %>
+    <% end %>
+
     <%if current_user.players.size == 0%>
     <h3>you don't have any player yet</h3>
     <%else%>

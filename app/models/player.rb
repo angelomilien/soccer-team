@@ -16,6 +16,11 @@ class Player < ApplicationRecord
         self.team = Team.find_or_create_by(name: team_attributes[:name].capitalize)
         self.team.update(name: team_attributes[:name].capitalize, country_name: team_attributes[:country_name].capitalize)
     end
+
+    def self.search(params)
+        self.where("name LIKE ?", "%"+ params+"%")[0]
+    end
+    
    
     # def team_attributes
     #     # self.team ? self.team.name : nil

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post '/signing', to: 'sessions#signing'
 
     delete '/logout', to: 'sessions#logout'
+
+    get 'search', to: 'players#search'
     # get 'authors/:id/posts', to: 'authors#posts_index'
     # get 'authors/:id/posts/:post_id', to: 'authors#post'
 

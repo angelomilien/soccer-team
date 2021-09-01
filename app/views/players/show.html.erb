@@ -1,4 +1,5 @@
 <div class= "container" style="background-color: #548CA8">
+
     <h1>Player show page</h1>
     <hr>
     <h2>Name: <%= @player.name %></h2>
@@ -15,8 +16,9 @@
 
     <%=home_nav_button%><br>
     <%=logout_nav_button%><br>
-    <%=edit_nav_button%><br>
+    <%=edit_nav_button(@player)%><br>
 
     <%= button_to "Delete", @player, :confirm => "Are you sure?", :method => :delete %><br>
+   
 </div>    
 
